@@ -1,0 +1,7 @@
+{
+  "name": "pearlfect",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
