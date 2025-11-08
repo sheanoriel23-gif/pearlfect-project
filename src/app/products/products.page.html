@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Our Products</ion-title>
+
+    <!-- Cart button in the upper right -->
+    <ion-buttons slot="end">
+  <ion-button (click)="goToCart()" fill="clear" class="cart-button">
+    <ion-icon name="cart-outline" class="cart-icon"></ion-icon>
+  </ion-button>
+</ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <!-- Optional banner -->
+  <div class="banner" *ngIf="showBanner">
+    <img src="assets/images/banners.png" alt="Pearlfect Milktea Banner" />
+  </div>
+
+  <!-- Search and Categories -->
+<ion-searchbar [(ngModel)]="searchQuery" placeholder="Search products..."></ion-searchbar>
+
+<div class="segment-scroll">
+  <ion-segment [(ngModel)]="selectedCategory" value="all">
+    <ion-segment-button *ngFor="let cat of categories" [value]="cat">
+      {{ cat.replace('-', ' ') | titlecase }}
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+
+  <!-- Product List -->
+  <div class="product-scroll-container">
+    <div
+      class="product-card"
+      *ngFor="let product of filteredProducts"
+      (click)="openProductOptions(product)"
+    >
+      <img [src]="product.image" alt="{{ product.name }}" />
+      <h3>{{ product.name }}</h3>
+      <p>₱{{ product.price }}</p>
+      <ion-button fill="solid" size="small">View</ion-button>
+    </div>
+  </div>
+</ion-content>

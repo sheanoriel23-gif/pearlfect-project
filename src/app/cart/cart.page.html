@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Back button icon only -->
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title class="header-title">Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Cart Items -->
+  <ion-list *ngIf="cartItems.length > 0; else emptyCart">
+  <ion-item *ngFor="let item of cartItems; let i = index" lines="none">
+  <ion-checkbox slot="start" [(ngModel)]="item.selected"></ion-checkbox>
+  <ion-thumbnail slot="start">
+    <img [src]="item.product.image" [alt]="item.product.name">
+  </ion-thumbnail>
+  <ion-label>
+    <h3>{{ item.product.name }}</h3>
+    <p>₱{{ item.totalPrice }} ({{ item.quantity }} pcs)</p>
+    <small>Sugar: {{ item.sugar }}, Ice: {{ item.ice }}</small><br>
+    <small *ngIf="item.addons | keyvalue as addonList">
+      Add-ons: 
+      <span *ngFor="let a of addonList; let last = last">
+        {{ a.key | titlecase }} (₱{{ a.value }}){{ last ? '' : ', ' }}
+      </span>
+    </small>
+  </ion-label>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="decreaseQty(item)">
+      <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button (click)="increaseQty(item)">
+      <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button color="danger" (click)="removeItem(i)">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-item>
+
+</ion-list>
+
+
+  <ng-template #emptyCart>
+    <p class="ion-text-center">Your cart is empty.</p>
+  </ng-template>
+
+  <!-- Cart Summary -->
+<div *ngIf="cartItems.length > 0" class="cart-summary">
+
+  <!-- Total & Select All -->
+  <div class="summary-top">
+    <ion-button size="small" fill="outline" color="medium" (click)="toggleAll()">
+      {{ allSelected ? 'Unselect All' : 'Select All' }}
+    </ion-button>
+    <h2>Total: ₱{{ selectedTotal }}</h2> 
+  </div>
+
+  <!-- Proceed to Checkout -->
+  <ion-button expand="block" color="tertiary" [routerLink]="['/checkout']">
+    Proceed to Checkout
+  </ion-button>
+
+  <!-- Clear Cart -->
+  <ion-button expand="block" color="medium" fill="outline" (click)="clearCart()">
+    Clear Cart
+  </ion-button>
+</div>
+
+
+
+</ion-content>

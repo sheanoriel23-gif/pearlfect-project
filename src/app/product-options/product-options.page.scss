@@ -1,0 +1,174 @@
+ion-header {
+  ion-menu-button {
+    --color: #fff; /* burger menu white */
+  }
+
+  ion-toolbar:first-child {
+    --background: #b39ddb; /* new header color */
+    color: white;
+  }
+
+  ion-icon {
+    color: #fff;  /* other icons, e.g., cart */
+  }
+
+  .header-title {
+    font-weight: bold;
+    color: white;
+  }
+}
+ion-content {
+  --background: #f5efe6; /* main page background */
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Product info card */
+.product-info {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #e8dbfa; /* light purple background */
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 3px 8px rgba(148, 112, 212, 0.2);
+
+  img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    border: 3px solid #b39ddb;
+    background-color: #fff;
+  }
+
+  h2 {
+    font-weight: 700;
+    color: #9470d4;
+    margin: 0 0 6px 0;
+    font-size: 1.3rem;
+  }
+
+   p {
+    margin: 4px 0;
+    color: #444;
+    font-size: 1rem;
+
+    &.description {
+      margin-top: 12px;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      padding: 0 10px;
+    }
+  }
+}
+
+/* Section titles */
+h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #6f4bb8; /* rich purple tone */
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-left: 4px solid #b39ddb;
+  padding-left: 10px;
+}
+
+/* Sugar / Ice selection grid */
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;  // Keep for spacing, or set to 0 if you want no gap (see below)
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* Option cards for Add-ons */
+.option-card {
+  background: #e8dbfa;          // light purple fill
+  color: #9470d4;               // purple text
+  font-weight: 600;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent; // default no border
+
+  .addon-name {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+
+  .addon-price {
+    font-size: 0.85rem;
+    color: #6b4ca5;
+  }
+
+  &.selected {
+    border: 2px solid #6b4ca5;  // darker purple border when selected
+    box-shadow: 0 3px 6px rgba(148, 112, 212, 0.2);
+  }
+
+  &:hover {
+    box-shadow: 0 3px 6px rgba(148, 112, 212, 0.15);
+  }
+}
+
+.addon-item {
+  margin-bottom: 12px;  // space between each addon
+}
+
+/* Optional: bottom spacing after all addons */
+.home-content {
+  padding-bottom: 24px; // add space from bottom of page
+}
+
+/* Add to Cart button */
+.add-to-cart-btn {
+  --background: #9470d4;
+  --color: #fff;
+  font-weight: 700;
+  --border-radius: 50px;    /* <-- use this for Ionic button */
+  padding: 0;
+  margin-top: 16px;       
+  width: calc(100% - 16px); 
+  margin-left: 8px;
+
+  .btn-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+
+  .btn-text {
+    text-align: left;
+  }
+
+  .total-price {
+    text-align: right;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff;
+  }
+
+  &:hover {
+    --background: #7e57c2;
+  }
+}

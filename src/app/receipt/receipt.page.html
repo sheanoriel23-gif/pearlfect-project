@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Receipt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding receipt-content">
+
+  <h2>🧾 Order Receipt</h2>
+
+  <!-- Order Summary Container -->
+  <div class="summary-card">
+    <h3>Order Summary</h3>
+    <div class="order-list">
+      <div class="order-item" *ngFor="let item of cartItems">
+        <div class="item-header">
+          <h4>{{ item.product.name }}</h4>
+          <span>₱{{ item.totalPrice }}</span>
+        </div>
+        <p>Qty: {{ item.quantity }} | Sugar: {{ item.sugar }}, Ice: {{ item.ice }}</p>
+        <small *ngIf="item.addons | keyvalue as addonList">
+          Add-ons: 
+          <span *ngFor="let a of addonList; let last = last">
+            {{ a.key | titlecase }} (₱{{ a.value }}){{ last ? '' : ', ' }}
+          </span>
+        </small>
+      </div>
+    </div>
+    <h3 class="total">Total: ₱{{ total }}</h3>
+  </div>
+
+  <!-- Customer Info Container -->
+  <div class="summary-card">
+    <h3>👤 Customer Info</h3>
+    <div class="info-card">
+      <div><strong>Name:</strong> {{ customerName }}</div>
+      <div><strong>Phone:</strong> {{ customerNumber }}</div>
+      <div><strong>Address:</strong> {{ address }}</div>
+      <div><strong>Payment:</strong> {{ paymentMethod }}</div>
+    </div>
+  </div>
+
+  <ion-button expand="block" (click)="goHome()">Back to Home</ion-button>
+
+</ion-content>

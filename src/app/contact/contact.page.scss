@@ -1,0 +1,91 @@
+ion-header {
+  ion-menu-button {
+    --color: #fff; /* white burger menu */
+  }
+
+  ion-toolbar:first-child {
+    --background: #b39ddb; /* lavender header to match others */
+    color: white;
+  }
+
+  ion-icon {
+    color: #fff;
+  }
+
+  .header-title {
+    font-weight: bold;
+    color: white;
+    letter-spacing: 0.5px;
+  }
+}
+
+.contact-page {
+  --background: #f5efe6; /* light cream background */
+
+  ion-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    ion-card-header {
+      background-color: #e0cffc; /* light lavender */
+      text-align: center;
+      border-bottom: 1px solid #d1b3f3;
+
+      ion-card-title {
+        color: #6b4ca5; /* deep purple accent */
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: 0.3px;
+      }
+    }
+
+    ion-card-content {
+      padding: 16px;
+
+      .info-row {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        margin: 12px 0;
+
+        ion-icon {
+          font-size: 22px;
+          color: #9470d4;
+          margin-top: 2px;
+          min-width: 24px;
+        }
+
+        .info-body {
+          display: flex;
+          flex-direction: column;
+
+          .info-label {
+            font-weight: 600;
+            color: #6b4ca5;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+          }
+
+          .info-value {
+            color: #444;
+            font-size: 0.92rem;
+            line-height: 1.4;
+            word-break: break-word;
+          }
+        }
+      }
+
+      .fb-icon {
+        color: #1877f2; /* official Facebook blue */
+      }
+    }
+  }
+}

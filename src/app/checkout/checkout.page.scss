@@ -1,0 +1,174 @@
+ion-header {
+  ion-toolbar:first-child {
+    --background: #b39ddb; /* soft purple header */
+    color: #fff;
+  }
+
+  ion-title {
+    font-weight: 700;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  ion-back-button {
+    --color: #fff;
+  }
+}
+
+.checkout-content {
+  --background: #f5efe6; /* light beige background */
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  padding: 16px;
+
+  .section {
+    margin-bottom: 24px;
+
+    h2 {
+      font-weight: 700;
+      color: #6f4bb8;
+      font-size: 1.15rem;
+      margin: 16px 0 12px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-left: 4px solid #b39ddb;
+      padding-left: 10px;
+    }
+  }
+
+  /* Order Summary */
+   .order-summary {
+    background: #e8dbfa;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 3px 6px rgba(148, 112, 212, 0.15);
+    margin-bottom: 24px;
+
+    .summary-card {
+      background: #fff; /* inner cards white for contrast */
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 4px rgba(148, 112, 212, 0.1);
+      transition: all 0.2s ease;
+
+      &:hover {
+        box-shadow: 0 3px 6px rgba(148, 112, 212, 0.15);
+      }
+
+      h3 {
+        color: #6b4ca5;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+
+      p {
+        color: #555;
+        font-size: 0.95rem;
+        margin: 2px 0;
+      }
+
+      .customization {
+        font-size: 0.9rem;
+        color: #6b4ca5;
+        margin-top: 6px;
+
+        span {
+          display: block;
+          margin-bottom: 2px;
+        }
+      }
+    }
+
+    .total {
+      color: #7a3fc0;
+      font-weight: 700;
+      font-size: 1.15rem;
+      text-align: right;
+      margin-top: 8px;
+    }
+  }
+  /* Delivery Address styled like option-card */
+  .address-card {
+    background: #e8dbfa;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 3px 6px rgba(148, 112, 212, 0.15);
+
+    ion-input {
+      --background: #fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #333;
+      --padding-start: 8px;
+    }
+  }
+
+  /* Input fields (address, gcash, card) */
+  /* Payment Method Section */
+.payment-methods {
+  margin-top: 10px;
+
+  .payment-option {
+    background: #e8dbfa;          /* light purple */
+    color: #6b4ca5;               /* purple text */
+    font-weight: 600;
+    text-align: center;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    box-shadow: 0 3px 6px rgba(148, 112, 212, 0.15);
+
+    &.selected {
+      border: 2px solid #6b4ca5;   /* highlight border */
+      box-shadow: 0 3px 8px rgba(148, 112, 212, 0.25);
+      background: #d9c3f7;         /* slightly deeper purple */
+    }
+
+    &:hover {
+      box-shadow: 0 4px 8px rgba(148, 112, 212, 0.25);
+    }
+  }
+
+  /* When showing input fields (GCash/Card) */
+  ion-item.input-item {
+    --background: #fff;
+    border-radius: 12px;
+    margin-top: 8px;
+    box-shadow: 0 2px 6px rgba(148, 112, 212, 0.1);
+
+    ion-label {
+      color: #6b4ca5;
+      font-weight: 500;
+    }
+
+    ion-input {
+      --padding-start: 8px;
+      font-size: 0.95rem;
+      color: #333;
+    }
+  }
+}
+
+
+  /* Place Order button */
+  ion-button {
+    --background: #9470d4;
+    --color: #fff;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-top: 24px;
+    box-shadow: 0 4px 8px rgba(148, 112, 212, 0.25);
+    width: calc(100% - 16px);
+    margin-left: 8px;
+
+    &:hover {
+      --background: #7e57c2;
+    }
+  }
+}

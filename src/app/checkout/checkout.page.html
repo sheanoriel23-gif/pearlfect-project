@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cart" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding checkout-content">
+
+  <!-- Order Summary Container -->
+  <div class="section order-summary">
+    <h2>🛒 Order Summary</h2>
+
+    <div *ngFor="let item of cartItems" class="summary-card">
+      <h3>{{ item.product.name }}</h3>
+      <p>Qty: {{ item.quantity }} | ₱{{ item.totalPrice }}</p>
+      <div class="customization">
+        <span>Sugar Level: {{ item.sugar || 'Default' }}</span>
+        <span>Ice Level: {{ item.ice || 'Default' }}</span>
+        <small *ngIf="item.addons | keyvalue as addonList">
+          Add-ons:
+          <span *ngFor="let a of addonList; let last = last">
+            {{ a.key | titlecase }} (₱{{ a.value }}){{ last ? '' : ', ' }}
+          </span>
+        </small>
+      </div>
+    </div>
+
+    <h3 class="total">Total: ₱{{ total }}</h3>
+  </div>
+
+  <!-- Delivery Address -->
+  <div class="section">
+  <h2>📍 Delivery Address</h2>
+  <div class="address-card">
+    <ion-input [(ngModel)]="address" placeholder="Enter your address"></ion-input>
+  </div>
+</div>
+
+
+ <h2>💳 Payment Method</h2>
+<div class="payment-methods">
+  <div 
+    class="payment-option" 
+    [class.selected]="paymentMethod === 'cod'" 
+    (click)="paymentMethod = 'cod'">
+    Cash on Delivery (COD)
+  </div>
+
+  <div 
+    class="payment-option" 
+    [class.selected]="paymentMethod === 'gcash'" 
+    (click)="paymentMethod = 'gcash'">
+    GCash
+  </div>
+
+  <ion-item *ngIf="paymentMethod === 'gcash'" class="input-item">
+    <ion-label position="stacked">GCash Number</ion-label>
+    <ion-input [(ngModel)]="gcashNumber" placeholder="09xxxxxxxxx"></ion-input>
+  </ion-item>
+
+  <div 
+    class="payment-option" 
+    [class.selected]="paymentMethod === 'card'" 
+    (click)="paymentMethod = 'card'">
+    Card
+  </div>
+
+  <ion-item *ngIf="paymentMethod === 'card'" class="input-item">
+    <ion-label position="stacked">Card Number</ion-label>
+    <ion-input [(ngModel)]="cardNumber" placeholder="xxxx xxxx xxxx xxxx"></ion-input>
+  </ion-item>
+</div>
+
+  <!-- Place Order -->
+  <ion-button expand="block" (click)="placeOrder()">Place Order</ion-button>
+</ion-content>

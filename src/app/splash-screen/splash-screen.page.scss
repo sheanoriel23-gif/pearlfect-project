@@ -1,0 +1,15 @@
+.splash-content {
+  --background: #f5efe6; // plain cream background
+
+  .center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; // fill ion-content
+
+    img {
+      width: 200px; // change this to your desired size
+      height: auto; // keeps the aspect ratio
+    }
+  }
+}

@@ -1,0 +1,141 @@
+/* --- Header --- */
+ion-toolbar {
+  --background: #b39ddb; /* universal header color */
+  --color: #fff;
+}
+
+ion-back-button {
+  --color: #fff; /* back button icon white */
+}
+
+ion-title {
+  font-weight: 600;
+}
+
+/* --- Page background --- */
+ion-content {
+  --background: #f5efe6; /* soft cream for spacing between items */
+  padding: 12px;
+}
+
+/* --- Cart Items --- */
+ion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* spacing between each item */
+}
+
+/* --- Each Cart Item --- */
+ion-item {
+  --background: #fff; /* keep the card white */
+  border-radius: 12px;
+  padding: 10px 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  ion-checkbox {
+    --checkmark-color: #a58adf; /* purple checkbox */
+    --background: #f5efe6;
+    margin-right: 6px;
+  }
+
+  ion-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-right: 8px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  ion-label {
+    h3 {
+      font-weight: 600;
+      margin-bottom: 2px;
+      font-size: 1rem;
+    }
+
+    p {
+      font-weight: 700;
+      color: #6b4ca5; /* purple total per item */
+      margin-bottom: 2px;
+    }
+
+    small {
+      color: #666;
+      font-size: 0.75rem;
+    }
+  }
+
+  ion-buttons {
+    ion-button {
+      --padding-start: 4px;
+      --padding-end: 4px;
+      height: 28px; /* smaller buttons */
+      min-width: 28px;
+      --border-radius: 6px;
+      --background: #a58adf; /* purple background for -/+ */
+      --color: #fff;
+
+      ion-icon {
+        font-size: 18px;
+      }
+
+      &.delete {
+        --background: #ff6b6b; /* red delete button */
+      }
+    }
+  }
+}
+
+/* --- Total & Select All Container --- */
+.cart-summary {
+  background: #fff;
+  padding: 15px;
+  border-radius: 16px;
+  margin-top: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .summary-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-weight: 700;
+      color: #6b4ca5; /* purple total */
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    ion-button {
+      height: auto;
+      font-size: 0.85rem;
+      padding: 0 4px; /* minimal padding */
+      --padding-start: 0;
+      --padding-end: 0;
+      flex-shrink: 0; /* prevent shrinking */
+      width: auto; /* only as wide as content */
+    }
+  }
+
+  ion-button {
+    width: 100%;
+    font-weight: 600;
+  }
+}
+
+
+/* --- Empty Cart Message --- */
+p.ion-text-center {
+  color: #888;
+  font-size: 1rem;
+  margin-top: 50%;
+}

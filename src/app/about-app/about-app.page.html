@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>About the App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="banner">
+    <img src="assets/images/banners.png" alt="Pearlfect Milktea Banner" />
+    <div class="banner-text">Pearlfect Milktea App</div>
+  </div>
+
+  <div class="about-container">
+    <div class="sections-container">
+      
+      <section>
+        <h3>App Overview</h3>
+        <p>
+          The <strong>Pearlfect Milktea App</strong> was designed to bring your favorite milk tea experience
+          right to your fingertips. Users can browse the menu, customize drinks, and place orders conveniently.
+          <br /><br />
+          <em>Note: This is a school project developed for educational purposes only.</em>
+        </p>
+      </section>
+
+      <section class="key-features">
+        <h3>Key Features</h3>
+        <ion-list>
+          <ion-item *ngFor="let feature of features">
+            <ion-icon name="checkmark-circle-outline" slot="start"></ion-icon>
+            <ion-label>{{ feature }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </section>
+
+      <section>
+        <h3>Purpose & Vision</h3>
+        <p>
+          Our goal is to make milk tea ordering more convenient and enjoyable, even in a demo setting.
+          Pearlfect Milktea aims to showcase how technology can enhance small business operations.
+        </p>
+      </section>
+
+      <section>
+        <h3>Technical Notes</h3>
+        <p>
+          Built using <strong>Ionic Framework</strong> with <strong>Angular Standalone Components</strong>.
+          The app demonstrates UI navigation, data binding, and routing — without real transactions.
+        </p>
+      </section>
+
+      <section>
+        <h3>Future Plans</h3>
+        <p>
+          In the future, the app could include features such as real-time order tracking,
+          user accounts, and online payment integration for a complete e-commerce experience.
+        </p>
+      </section>
+
+    </div>
+  </div>
+</ion-content>

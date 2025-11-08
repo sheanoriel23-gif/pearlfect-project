@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ product.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="product-info">
+    <img [src]="product.image" [alt]="product.name" />
+    <h2>{{ product.name }}</h2>
+    <p>₱{{ product.price }}</p>
+    <p class="description">{{ product.description }}</p>
+  </div>
+
+<h6>Sugar Level</h6>
+<div class="option-grid">
+  <div 
+    *ngFor="let s of ['25%', '50%', '75%', '100%']"
+    class="option-card"
+    [class.selected]="sugarLevel === s"
+    (click)="sugarLevel = s"
+  >
+    {{ s }}
+  </div>
+</div>
+
+<h6>Ice Level</h6>
+<div class="option-grid">
+  <div 
+    *ngFor="let i of ['Normal Ice', 'Less Ice', 'More Ice', 'No Ice']"
+    class="option-card"
+    [class.selected]="iceLevel === i"
+    (click)="iceLevel = i"
+  >
+    {{ i }}
+  </div>
+</div>
+
+<h6>Add-ons</h6>
+<div class="option-grid">
+  <div 
+    *ngFor="let addon of addons"
+    class="option-card"
+    [class.selected]="addon.selected"
+    (click)="addon.selected = !addon.selected"
+  >
+    <div class="addon-name">{{ addon.name }}</div>
+    <div class="addon-price">+₱{{ addon.price }}</div>
+  </div>
+</div>
+
+<ion-button 
+  fill="solid" 
+  expand="block" 
+  class="add-to-cart-btn" 
+  (click)="onAddToCart()">
+  <div class="btn-content">
+    <span class="btn-text">Add to Cart</span>
+    <span class="total-price">₱{{ totalPrice }}</span>
+  </div>
+</ion-button>
+

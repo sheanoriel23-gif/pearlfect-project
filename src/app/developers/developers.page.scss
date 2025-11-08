@@ -1,0 +1,77 @@
+ion-header {
+  ion-menu-button {
+    --color: #fff; /* burger menu white */
+  }
+
+  ion-toolbar:first-child {
+    --background: #b39ddb; /* header purple */
+    color: white;
+  }
+
+  ion-icon {
+    color: #fff;
+  }
+
+  .header-title {
+    font-weight: bold;
+    color: white;
+  }
+}
+
+ion-content {
+  --background: #f5efe6; /* light cream/purple background */
+  font-family: 'Poppins', sans-serif;
+  padding: 16px;
+}
+
+.developer-container {
+  margin-bottom: 24px;
+  text-align: center;
+  overflow: visible; /* allow circle to float above card */
+}
+
+ion-card {
+  padding-top: 130px;    // just enough for title under circle
+  position: relative;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+.dev-img {
+  width: 100px;          // final circle size
+  height: 100px;
+  border-radius: 50%;   // circle
+  object-fit: cover;
+  border: 2px solid #b39ddb;
+  background-color: #fff;
+  position: absolute;
+  top: 15px;           // half of image height, so it sits above card
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;          // ensure it’s above the card
+}
+
+
+  ion-card-header {
+    background-color: #cea6f1;
+    color: white;
+    text-align: center;
+    padding: 8px 0; /* reduce top padding */
+  }
+
+  ion-card-title {
+    margin-top: 0;   /* remove extra space */
+    font-weight: bold;
+    font-size: 1.05rem;
+  }
+
+  ion-card-content {
+    color: #444;
+    padding: 12px 16px;
+    p {
+      margin: 4px 0; /* smaller margin for better spacing */
+    }
+  }
+

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Our Developers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="developer-container" *ngFor="let dev of developers">
+    <ion-card>
+  <img [src]="dev.image" alt="{{ dev.name }}" class="dev-img"/>
+  <ion-card-header>
+    <ion-card-title>{{ dev.name }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p><strong>Role:</strong> {{ dev.role }}</p>
+    <p><strong>Email:</strong> {{ dev.email }}</p>
+    <p><strong>Specialty:</strong> {{ dev.specialty }}</p>
+  </ion-card-content>
+</ion-card>
+  </div>
+</ion-content>
