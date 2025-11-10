@@ -1,0 +1,42 @@
+<ion-content class="signup-page">
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="assets/images/logo.png" alt="App Logo" />
+  </div>
+
+  <!-- Form -->
+  <form (ngSubmit)="signup()">
+    <h3 class="signup-label">Sign Up</h3>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="name" name="name" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Phone Number</ion-label>
+      <ion-input type="tel" [(ngModel)]="phone" name="phone" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Sign Up</ion-button>
+
+    <div class="text-center">
+      <p>Already have an account?</p>
+      <ion-button fill="clear" (click)="goToLogin()">Login</ion-button>
+    </div>
+  </form>
+
+    <div class="back-home">
+    <ion-button fill="outline" expand="block" (click)="goHome()">← Back to Home</ion-button>
+  </div>
+
+</ion-content>

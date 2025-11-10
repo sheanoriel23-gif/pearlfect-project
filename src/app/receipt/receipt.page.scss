@@ -16,6 +16,22 @@ ion-header {
   }
 }
 
+.order-id-box {
+  text-align: center;
+  background-color: #d9c5f8;  // soft lavender highlight
+  border-radius: 10px;
+  padding: 6px 0;
+  margin-bottom: 12px;
+
+  .order-id {
+    color: #3a1d70;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+  }
+}
+
+
 .receipt-content {
   --background: #f5efe6;
   padding: 16px;
@@ -73,11 +89,23 @@ ion-header {
       }
     }
 
+    /* ------------------ Added Subtotal & Shipping Styles ------------------ */
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #4b3a70;
+      padding: 4px 0;
+      border-bottom: 1px dashed rgba(107,76,165,0.3);
+    }
+
     h3.total {
       text-align: right;
       font-weight: 600;
       font-size: 1rem;
       margin-top: 8px;
+      color: #3a1d70;
     }
 
     .info-card {

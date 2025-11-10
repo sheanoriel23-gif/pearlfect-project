@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicModule, ModalController } from '@ionic/angular';
+import { IonicModule, ModalController, ToastController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductOptionsPage } from '../product-options/product-options.page';
 import { CartService, CartItem } from '../services/cart.service';
-import { ToastController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
+import { ProductService, Product } from '../services/product.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -15,64 +17,89 @@ import { ToastController } from '@ionic/angular';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class HomePage {
-  selectedCategory: string = 'milk-tea';
+  selectedCategory: string = 'all';
 
+  // Categories from Firestore (or predefined if needed)
   categories = [
-    { name: 'Milk Tea', value: 'milk-tea', image: 'assets/images/milktea.png' },
+    { name: 'Pearlfect Specials', value: 'pearlfect-specials', image: 'assets/images/pearlfect.png' },
+    { name: 'Classic Milk Tea', value: 'classic-milktea', image: 'assets/images/milktea.png' },
+    { name: 'Cheesecake', value: 'cheesecake', image: 'assets/images/cheesecake.png' },
+    { name: 'Cream Cheese', value: 'cream-cheese', image: 'assets/images/cream-cheese.png' },
     { name: 'Matcha', value: 'matcha', image: 'assets/images/matcha.png' },
-    { name: 'Fruit Tea', value: 'fruit-tea', image: 'assets/images/fru.png' },
-    { name: 'Coffee', value: 'coffee', image: 'assets/images/coffee.png' },
-    { name: 'Snacks', value: 'snacks', image: 'assets/images/snacks.png' },
+    { name: 'Fruit Tea', value: 'fruit-tea', image: 'assets/images/fruit-tea.png' },
   ];
 
-  featuredDrinks = [
-    { name: 'Okinawa Pearlfect Milk Tea', price: 79, image: 'assets/images/matcha.png' },
-    { name: 'Brown Sugar Pearl Milk Tea', price: 109, image: 'assets/images/brown-sugar.jpg' },
-    { name: 'Taro Pearl Milk Tea', price: 89, image: 'assets/images/taro.jpg' },
-    { name: 'Matcha Pearl Milk Tea', price: 99, image: 'assets/images/matcha-latte.jpg' },
-    { name: 'Honey Pearl Milk Tea', price: 95, image: 'assets/images/honey.jpg' },
-  ];
+  featuredDrinks: Product[] = [];
 
   constructor(
     private router: Router,
     private modalCtrl: ModalController,
     private cartService: CartService,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private authService: AuthService,
+    private productService: ProductService
   ) {}
 
+  ionViewWillEnter() {
+    this.loadFeaturedDrinks();
+  }
+
+  // Load Pearlfect Specials from Firestore
+  loadFeaturedDrinks() {
+    this.productService.getProductsByCategory('pearlfect-specials').subscribe(products => {
+      this.featuredDrinks = products;
+    });
+  }
+
   goToCart() {
-  this.router.navigate(['/cart']); // make sure '/cart' route exists in app.routes.ts
-}
+    this.router.navigate(['/cart']);
+  }
 
   goToCategory(category: string) {
     this.router.navigate(['/products', { category }]);
   }
 
-  async openProductOptions(product: any) {
+  async openProductOptions(product: Product) {
+    if (!this.authService.isLoggedIn()) {
+      const toast = await this.toastCtrl.create({
+        message: 'Please log in to add items to your cart.',
+        duration: 2500,
+        position: 'top',
+        color: 'danger',
+        icon: 'alert-circle-outline',
+        buttons: [
+          {
+            text: 'Login',
+            role: 'cancel',
+            handler: () => this.router.navigate(['/login'])
+          }
+        ]
+      });
+      await toast.present();
+      return;
+    }
+
     const modal = await this.modalCtrl.create({
       component: ProductOptionsPage,
       componentProps: { product }
     });
 
     await modal.present();
-
-    const { data } = await modal.onDidDismiss();  // wait for modal to close and get data
+    const { data } = await modal.onDidDismiss();
     if (data) {
       this.cartService.addToCart(data as CartItem);
-      console.log('Added to cart:', data);
-       this.presentToast('Added to cart successfully!');
+      this.presentToast('Added to cart successfully!');
     }
   }
 
   async presentToast(message: string) {
-  const toast = await this.toastCtrl.create({
-    message: message,
-    duration: 1500, // 1.5 seconds
-    color: 'tertiary', // match your purple palette
-    position: 'top',
-    icon: 'checkmark-circle-outline'
-  });
-  await toast.present();
-}
-
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 1500,
+      color: 'tertiary',
+      position: 'top',
+      icon: 'checkmark-circle-outline'
+    });
+    await toast.present();
+  }
 }

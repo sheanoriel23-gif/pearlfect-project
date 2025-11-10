@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AuthService, UserProfile } from './auth.service';
 
 export interface CartItem {
   product: any;
@@ -14,21 +15,32 @@ export interface CartItem {
 })
 export class CartService {
   private items: CartItem[] = [];
-  
-  // Static customer info for now
+
   private customerInfo: { name: string; number: string } = { 
-    name: 'Juan Dela Cruz', 
-    number: '09123456789' 
+    name: 'Guest', 
+    number: '' 
   };
 
-  private orderInfo: { address: string; paymentMethod: string; gcash?: string; card?: string } = {
+  private orderInfo: { 
+    address: string; 
+    paymentMethod: string; 
+    gcash?: string; 
+    card?: string; 
+    shippingFee?: number; 
+    orderId?: string; // ✅ Added field for static Order ID
+  } = {
     address: '',
     paymentMethod: ''
   };
 
-  constructor() {}
+  constructor(private authService: AuthService) {
+    const user: UserProfile | null = this.authService.getUser();
+    if (user) {
+      this.customerInfo = { name: user.name, number: user.phone };
+    }
+  }
 
-  // ---------------- Cart Methods ----------------
+  // ---------------- CART FUNCTIONS ----------------
   addToCart(item: CartItem) {
     const existing = this.items.find(i =>
       i.product.name === item.product.name &&
@@ -41,12 +53,12 @@ export class CartService {
       existing.quantity += item.quantity;
       existing.totalPrice += item.totalPrice;
     } else {
-      this.items.push({ ...item }); // clone to avoid reference issues
+      this.items.push({ ...item });
     }
   }
 
   getCartItems(): CartItem[] {
-    return [...this.items]; // return a copy to avoid external mutations
+    return [...this.items];
   }
 
   getTotal(): number {
@@ -63,21 +75,39 @@ export class CartService {
     this.items = [];
   }
 
-  // ---------------- Customer Info ----------------
+  // ---------------- CUSTOMER INFO ----------------
   setCustomerInfo(name: string, number: string) {
     this.customerInfo = { name, number };
   }
 
   getCustomerInfo() {
-    return { ...this.customerInfo }; // return copy
+    const user: UserProfile | null = this.authService.getUser();
+    if (user) {
+      return { name: user.name, number: user.phone };
+    }
+    return { ...this.customerInfo };
   }
 
-  // ---------------- Order Info ----------------
-  setOrderInfo(address: string, paymentMethod: string, gcash?: string, card?: string) {
-    this.orderInfo = { address, paymentMethod, gcash, card };
+  // ---------------- ORDER INFO ----------------
+  setOrderInfo(
+    address: string, 
+    paymentMethod: string, 
+    gcash?: string, 
+    card?: string, 
+    shippingFee?: number,
+    orderId?: string // ✅ Add parameter for order ID
+  ) {
+    this.orderInfo = { 
+      address, 
+      paymentMethod, 
+      gcash, 
+      card, 
+      shippingFee, 
+      orderId // ✅ Store order ID
+    };
   }
 
   getOrderInfo() {
-    return { ...this.orderInfo }; // return copy
+    return { ...this.orderInfo };
   }
 }

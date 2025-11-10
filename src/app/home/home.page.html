@@ -5,45 +5,47 @@
     </ion-buttons>
     <ion-title class="header-title">Home</ion-title>
     <ion-buttons slot="end">
-  <ion-button (click)="goToCart()">
-    <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
-  </ion-button>
-</ion-buttons>
+      <ion-button (click)="goToCart()">
+        <ion-icon slot="icon-only" name="cart-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="home-content">
 
+  <!-- Banner -->
   <div class="banner">
-    <img src="assets/images/banners.png" alt="Milk Tea Banner">
+    <img src="assets/images/banners.png" alt="Milk Tea Banner" />
   </div>
 
-<div class="section-title">
-  <h2>Pearlfect Specials</h2>
-</div>
-
-<div class="specials-container">
-  <div *ngFor="let drink of featuredDrinks" class="special-card">
-    <img [src]="drink.image" [alt]="drink.name" />
-    <h3 class="drink-name">{{ drink.name }}</h3>
-    <p class="drink-price">₱{{ drink.price }}</p>
-    <ion-button class="add-btn" (click)="openProductOptions(drink)">
-      <ion-icon slot="icon-only" name="add"></ion-icon>
-    </ion-button>
+  <!-- Featured Drinks (Pearlfect Specials) -->
+  <div class="section-title">
+    <h2>Pearlfect Specials</h2>
   </div>
-</div>
-
-<div class="section-title">
-  <h2>Drink Categories</h2>
-</div>
-
-<div class="categories-container">
-  <div 
-    class="category-card" 
-    *ngFor="let cat of categories"
-    (click)="goToCategory(cat.value)">
-    <img [src]="cat.image" [alt]="cat.name">
-    <p>{{ cat.name }}</p>
+  <div class="specials-container">
+    <div *ngFor="let drink of featuredDrinks" class="special-card">
+      <img [src]="drink.image" [alt]="drink.name" />
+      <h3 class="drink-name">{{ drink.name }}</h3>
+      <p class="drink-price">₱{{ drink.price }}</p>
+      <ion-button class="add-btn" (click)="openProductOptions(drink)">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </div>
   </div>
-</div>
+
+  <!-- Drink Categories -->
+  <div class="section-title">
+    <h2>Drink Categories</h2>
+  </div>
+  <div class="categories-container">
+    <div 
+      class="category-card" 
+      *ngFor="let cat of categories"
+      (click)="goToCategory(cat.value)">
+      <img [src]="cat.image" [alt]="cat.name" />
+      <p>{{ cat.name }}</p>
+    </div>
+  </div>
+
 </ion-content>

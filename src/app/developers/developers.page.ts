@@ -34,10 +34,10 @@ import {
 })
 export class DevelopersPage {
   developers = [
-    { name: 'Dematera, Charles Lorenz', role: 'Full Stack Developer', email: 'mark.santos@example.com', phone: 'Mobile & Web Apps', image: 'assets/images/dev4.jpg' },
-    { name: 'Garcia, Bon Andrew', role: 'Full Stack Developer', email: 'jane.smith@example.com', specialty: 'React & Express', image: 'assets/images/dev2.jpg' },
-    { name: 'Lapuz, Abigail', role: 'Full Stack Developer', email: 'john.doe@example.com', specialty: 'Angular & Node.js', image: 'assets/developers/abigail.png' },
-    { name: 'Oriel, Shean Owen', role: 'Full Stack Designer', email: 'alice.reyes@example.com', specialty: 'UI/UX & Backend', image: 'assets/images/dev3.jpg' },
-    { name: 'Tan, Jermaine Chritian', role: 'Full Stack Developer', email: 'liza.cruz@example.com', specialty: 'Project & Code Management', image: 'assets/images/dev5.jpg' }
+    { name: 'Dematera, Charles Lorenz', role: 'Full Stack Developer', email: 'qclpdematera@tip.edu.ph', specialty: 'Mobile & Web Apps', image: 'assets/developers/charles.png' },
+    { name: 'Garcia, Bon Andrew', role: 'Full Stack Developer', email: 'qbacgarcia@tip.edu.ph', specialty: 'React & Express', image: 'assets/developers/bon.png' },
+    { name: 'Lapuz, Abigail', role: 'Full Stack Developer', email: 'qa-lapuz@tip.edu.ph', specialty: 'Angular & Node.js', image: 'assets/developers/abi.png' },
+    { name: 'Oriel, Shean Owen', role: 'Full Stack Designer', email: 'qsohoriel@tip.edu.ph', specialty: 'UI/UX & Backend', image: 'assets/developers/owen.png' },
+    { name: 'Tan, Jermaine Chritian', role: 'Full Stack Developer', email: 'qjcntan@tip.edu.ph', specialty: 'Project & Code Management', image: 'assets/developers/tan.png' }
   ];
 }

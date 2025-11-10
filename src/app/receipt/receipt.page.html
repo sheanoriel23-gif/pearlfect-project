@@ -11,6 +11,11 @@
 
   <h2>🧾 Order Receipt</h2>
 
+  <!-- 🆔 Order ID -->
+  <div class="order-id-box">
+    <p><strong>Order ID:</strong> <span class="order-id">{{ orderId }}</span></p>
+  </div>
+
   <!-- Order Summary Container -->
   <div class="summary-card">
     <h3>Order Summary</h3>
@@ -29,6 +34,20 @@
         </small>
       </div>
     </div>
+
+    <!-- Subtotal -->
+    <div class="summary-line">
+      <span>Subtotal:</span>
+      <span>₱{{ subtotal }}</span>
+    </div>
+
+    <!-- Shipping Fee -->
+    <div class="summary-line">
+      <span>Shipping Fee:</span>
+      <span>₱{{ shippingFee }}</span>
+    </div>
+
+    <!-- Total including shipping -->
     <h3 class="total">Total: ₱{{ total }}</h3>
   </div>
 

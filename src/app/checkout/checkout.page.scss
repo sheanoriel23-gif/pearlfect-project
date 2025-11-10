@@ -37,7 +37,7 @@ ion-header {
   }
 
   /* Order Summary */
-   .order-summary {
+  .order-summary {
     background: #e8dbfa;
     border-radius: 16px;
     padding: 16px;
@@ -80,6 +80,28 @@ ion-header {
       }
     }
 
+    /* Subtotal, Shipping Fee, Total */
+    .summary-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 8px;
+      padding: 6px 0;
+      border-top: 1px dashed #b39ddb;
+      color: #6b4ca5;
+
+      span {
+        margin-left: auto; /* push amount to the right */
+      }
+
+      &.total {
+        font-size: 1.15rem;
+        color: #7a3fc0;
+      }
+    }
+
     .total {
       color: #7a3fc0;
       font-weight: 700;
@@ -88,6 +110,7 @@ ion-header {
       margin-top: 8px;
     }
   }
+
   /* Delivery Address styled like option-card */
   .address-card {
     background: #e8dbfa;
@@ -106,55 +129,63 @@ ion-header {
     }
   }
 
-  /* Input fields (address, gcash, card) */
-  /* Payment Method Section */
-.payment-methods {
-  margin-top: 10px;
-
-  .payment-option {
-    background: #e8dbfa;          /* light purple */
-    color: #6b4ca5;               /* purple text */
-    font-weight: 600;
-    text-align: center;
-    padding: 14px 16px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border: 2px solid transparent;
-    box-shadow: 0 3px 6px rgba(148, 112, 212, 0.15);
-
-    &.selected {
-      border: 2px solid #6b4ca5;   /* highlight border */
-      box-shadow: 0 3px 8px rgba(148, 112, 212, 0.25);
-      background: #d9c3f7;         /* slightly deeper purple */
-    }
-
-    &:hover {
-      box-shadow: 0 4px 8px rgba(148, 112, 212, 0.25);
-    }
-  }
-
-  /* When showing input fields (GCash/Card) */
-  ion-item.input-item {
-    --background: #fff;
-    border-radius: 12px;
-    margin-top: 8px;
-    box-shadow: 0 2px 6px rgba(148, 112, 212, 0.1);
-
-    ion-label {
-      color: #6b4ca5;
-      font-weight: 500;
-    }
-
-    ion-input {
-      --padding-start: 8px;
-      font-size: 0.95rem;
-      color: #333;
-    }
-  }
+  .payment-label {
+  font-weight: 700;
+  color: #6f4bb8;
+  font-size: 1.15rem;
+  margin: 16px 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-left: 4px solid #b39ddb;
+  padding-left: 10px;
 }
+  /* Payment Method Section */
+  .payment-methods {
+    margin-top: 10px;
 
+    .payment-option {
+      background: #e8dbfa;
+      color: #6b4ca5;
+      font-weight: 600;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      box-shadow: 0 3px 6px rgba(148, 112, 212, 0.15);
+
+      &.selected {
+        border: 2px solid #6b4ca5;
+        box-shadow: 0 3px 8px rgba(148, 112, 212, 0.25);
+        background: #d9c3f7;
+      }
+
+      &:hover {
+        box-shadow: 0 4px 8px rgba(148, 112, 212, 0.25);
+      }
+    }
+
+    /* When showing input fields (GCash/Card) */
+    ion-item.input-item {
+      --background: #fff;
+      border-radius: 12px;
+      margin-top: 8px;
+      box-shadow: 0 2px 6px rgba(148, 112, 212, 0.1);
+
+      ion-label {
+        color: #6b4ca5;
+        font-weight: 500;
+      }
+
+      ion-input {
+        --padding-start: 8px;
+        font-size: 0.95rem;
+        color: #333;
+      }
+    }
+  }
 
   /* Place Order button */
   ion-button {

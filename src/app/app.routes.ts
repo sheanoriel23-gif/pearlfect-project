@@ -40,11 +40,14 @@ export const routes: Routes = [
   {
   path: 'receipt',
   loadComponent: () => import('./receipt/receipt.page').then(m => m.ReceiptPage)
-},
-
+  },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  }
+    path: 'login',
+    loadComponent: () => import('./login/login.page').then(m => m.LoginPage)
+  },
+  {
+    path: 'signup',
+    loadComponent: () => import('./signup/signup.page').then(m => m.SignupPage)
+  },
+  
 ];

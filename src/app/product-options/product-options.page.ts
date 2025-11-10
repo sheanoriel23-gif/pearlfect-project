@@ -3,6 +3,7 @@ import { IonicModule, ModalController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartItem } from '../services/cart.service';
+import { Product } from '../services/product.service';
 
 @Component({
   selector: 'app-product-options',
@@ -12,12 +13,11 @@ import { CartItem } from '../services/cart.service';
   imports: [IonicModule, CommonModule, FormsModule],
 })
 export class ProductOptionsPage {
-  @Input() product: any; // received from modal
+  @Input() product!: Product; // received full product from ProductsPage
 
   sugarLevel: string = '50%';
   iceLevel: string = 'Normal Ice';
 
-  // Example add-ons
   addons = [
     { name: 'Nata de Coco', price: 10, selected: false },
     { name: 'Pearl', price: 15, selected: false },
@@ -27,7 +27,6 @@ export class ProductOptionsPage {
 
   constructor(private modalCtrl: ModalController) {}
 
-  // Compute total price dynamically
   get totalPrice(): number {
     const addonTotal = this.addons
       .filter(a => a.selected)
@@ -35,12 +34,10 @@ export class ProductOptionsPage {
     return this.product.price + addonTotal;
   }
 
-  // Close modal without adding
   closeModal() {
     this.modalCtrl.dismiss();
   }
 
-  // Add to cart and pass the CartItem to parent
   onAddToCart() {
     const selectedAddons: { [key: string]: number } = {};
     this.addons.forEach(a => {
@@ -56,6 +53,6 @@ export class ProductOptionsPage {
       totalPrice: this.totalPrice
     };
 
-    this.modalCtrl.dismiss(cartItem); // pass back to cart/home
+    this.modalCtrl.dismiss(cartItem);
   }
 }

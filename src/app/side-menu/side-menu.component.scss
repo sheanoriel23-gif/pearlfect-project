@@ -16,9 +16,14 @@ ion-content {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+.user-img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
 .user-img {
-  width: 90px;
-  height: 90px;
+  width: auto;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #fff;
@@ -26,6 +31,30 @@ ion-content {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+.edit-photo-wrapper {
+  position: absolute;
+  top: -5px;       /* slightly outside top */
+  right: -5px;     /* slightly outside right */
+  background: #9470d4;  /* purple theme */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.edit-photo-wrapper:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(148, 112, 212, 0.5);
+}
+
+.edit-photo-icon {
+  font-size: 16px;  /* pencil size */
+  color: #fff;
+}
 .user-info h2 {
   font-size: 1.3rem;
   font-weight: 600;
@@ -69,9 +98,35 @@ ion-label {
   font-size: 1rem;
 }
 
+/* Custom toast theme */
+ion-toast.custom-toast {
+  --background: #9470d4;   /* your purple */
+  --color: #fff;            /* text color */
+  --icon-color: #fff;       /* icon color */
+  border-radius: 12px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(148, 112, 212, 0.4);
+}
+
 /* SMALL SPACING AT BOTTOM */
 ion-content::after {
   content: "";
   display: block;
   height: 30px;
+}
+
+/* LOGIN / LOGOUT BUTTON */
+.login-button-container ion-button {
+  --background: #9470d4;  /* same purple as theme */
+  --color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(179, 136, 235, 0.3);
+  font-weight: 500;
+  height: 50px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-button-container ion-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(179, 136, 235, 0.4);
 }

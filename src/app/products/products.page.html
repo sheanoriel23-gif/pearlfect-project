@@ -37,16 +37,17 @@
 
 
   <!-- Product List -->
-  <div class="product-scroll-container">
-    <div
-      class="product-card"
-      *ngFor="let product of filteredProducts"
-      (click)="openProductOptions(product)"
-    >
-      <img [src]="product.image" alt="{{ product.name }}" />
-      <h3>{{ product.name }}</h3>
-      <p>₱{{ product.price }}</p>
-      <ion-button fill="solid" size="small">View</ion-button>
-    </div>
+<div class="product-grid">
+  <div
+    class="product-card"
+    *ngFor="let product of filteredProducts"
+    (click)="openProductOptions(product)"
+  >
+    <img [src]="product.image" alt="{{ product.name }}" />
+    <h3>{{ product.name }}</h3>
+    <p>₱{{ product.price }}</p>
+    <ion-button fill="solid" size="small">View</ion-button>
   </div>
+</div>
+
 </ion-content>

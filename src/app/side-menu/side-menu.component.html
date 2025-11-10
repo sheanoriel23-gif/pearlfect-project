@@ -2,18 +2,36 @@
   <ion-content>
     <!-- User Info -->
     <div class="user-info">
-      <img [src]="user.image" alt="User Image" class="user-img" />
-      <h2>{{ user.name }}</h2>
-      <p>{{ user.number }}</p>
-    </div>
+  <div class="user-img-wrapper">
+  <img [src]="user.photoURL" alt="User Image" class="user-img" />
+  <div *ngIf="isLoggedIn" class="edit-photo-wrapper" (click)="triggerFileInput()">
+    <ion-icon name="pencil-outline" class="edit-photo-icon"></ion-icon>
+  </div>
+</div>
+
+
+
+  <h2>{{ user.name }}</h2>
+  <p *ngIf="isLoggedIn">{{ user.phone }}</p>
+
+  <!-- Hidden file input -->
+  <input type="file" #fileInput accept="image/*" style="display: none;" (change)="changeProfilePicture($event)" />
+</div>
+
 
     <!-- Menu Items -->
     <ion-list>
-      <ion-item *ngFor="let item of menuItems" [routerLink]="item.url" lines="none"
-      (click)="closeMenu()">
+      <ion-item *ngFor="let item of menuItems" [routerLink]="item.url" lines="none" (click)="closeMenu()">
         <ion-icon [name]="item.icon" slot="start"></ion-icon>
         <ion-label>{{ item.title }}</ion-label>
       </ion-item>
     </ion-list>
+
+    <!-- Login / Logout Button -->
+    <div class="login-button-container ion-padding">
+      <ion-button expand="block" (click)="handleAuthAction()">
+        {{ isLoggedIn ? 'Logout' : 'Login / Signup' }}
+      </ion-button>
+    </div>
   </ion-content>
 </ion-menu>
