@@ -21,10 +21,10 @@ export class HomePage {
 
   // Categories from Firestore (or predefined if needed)
   categories = [
-    { name: 'Pearlfect Specials', value: 'pearlfect-specials', image: 'assets/images/pearlfect.png' },
-    { name: 'Classic Milk Tea', value: 'classic-milktea', image: 'assets/images/milktea.png' },
-    { name: 'Cheesecake', value: 'cheesecake', image: 'assets/images/cheesecake.png' },
-    { name: 'Cream Cheese', value: 'cream-cheese', image: 'assets/images/cream-cheese.png' },
+    { name: 'Pearlfect Specials', value: 'pearlfect-specials', image: 'assets/categories/pearlfect-specials/oreo-cheese.png' },
+    { name: 'Classic Milk Tea', value: 'classic-milktea', image: 'assets/categories/classic-milktea/classic-pearl.png' },
+    { name: 'Cheesecake', value: 'cheesecake', image: 'assets/categories/cheesecake/blueberry-cheesecake.png' },
+    { name: 'Cream Cheese', value: 'cream-cheese', image: 'assets/categories/cream-cheese/taro-cream.png' },
     { name: 'Matcha', value: 'matcha', image: 'assets/images/matcha.png' },
     { name: 'Fruit Tea', value: 'fruit-tea', image: 'assets/images/fruit-tea.png' },
   ];

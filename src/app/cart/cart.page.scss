@@ -1,11 +1,13 @@
 /* --- Header --- */
 ion-toolbar {
-  --background: #b39ddb; /* universal header color */
+  --background: #b39ddb;
+  /* universal header color */
   --color: #fff;
 }
 
 ion-back-button {
-  --color: #fff; /* back button icon white */
+  --color: #fff;
+  /* back button icon white */
 }
 
 ion-title {
@@ -14,7 +16,8 @@ ion-title {
 
 /* --- Page background --- */
 ion-content {
-  --background: #f5efe6; /* soft cream for spacing between items */
+  --background: #f5efe6;
+  /* soft cream for spacing between items */
   padding: 12px;
 }
 
@@ -22,18 +25,31 @@ ion-content {
 ion-list {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* spacing between each item */
+  gap: 12px;
+  /* spacing between each item */
+}
+
+.cartlabel {
+  display: flex;
+  flex-direction: column;
+}
+
+.cartlabeldesc {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* --- Each Cart Item --- */
 ion-item {
-  --background: #fff; /* keep the card white */
+  --background: #fff;
+  /* keep the card white */
   border-radius: 12px;
   padding: 10px 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 
   ion-checkbox {
-    --checkmark-color: #a58adf; /* purple checkbox */
+    --checkmark-color: #a58adf;
+    /* purple checkbox */
     --background: #f5efe6;
     margin-right: 6px;
   }
@@ -61,7 +77,8 @@ ion-item {
 
     p {
       font-weight: 700;
-      color: #6b4ca5; /* purple total per item */
+      color: #6b4ca5;
+      /* purple total per item */
       margin-bottom: 2px;
     }
 
@@ -75,10 +92,12 @@ ion-item {
     ion-button {
       --padding-start: 4px;
       --padding-end: 4px;
-      height: 28px; /* smaller buttons */
+      height: 28px;
+      /* smaller buttons */
       min-width: 28px;
       --border-radius: 6px;
-      --background: #a58adf; /* purple background for -/+ */
+      --background: #a58adf;
+      /* purple background for -/+ */
       --color: #fff;
 
       ion-icon {
@@ -86,7 +105,8 @@ ion-item {
       }
 
       &.delete {
-        --background: #ff6b6b; /* red delete button */
+        --background: #ff6b6b;
+        /* red delete button */
       }
     }
   }
@@ -110,7 +130,8 @@ ion-item {
 
     h2 {
       font-weight: 700;
-      color: #6b4ca5; /* purple total */
+      color: #6b4ca5;
+      /* purple total */
       margin: 0;
       font-size: 1.2rem;
     }
@@ -118,11 +139,14 @@ ion-item {
     ion-button {
       height: auto;
       font-size: 0.85rem;
-      padding: 0 4px; /* minimal padding */
+      padding: 0 4px;
+      /* minimal padding */
       --padding-start: 0;
       --padding-end: 0;
-      flex-shrink: 0; /* prevent shrinking */
-      width: auto; /* only as wide as content */
+      flex-shrink: 0;
+      /* prevent shrinking */
+      width: auto;
+      /* only as wide as content */
     }
   }
 
@@ -131,7 +155,6 @@ ion-item {
     font-weight: 600;
   }
 }
-
 
 /* --- Empty Cart Message --- */
 p.ion-text-center {

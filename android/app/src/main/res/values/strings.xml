@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">pearlfect-project</string>
+    <string name="title_activity_main">pearlfect-project</string>
+    <string name="package_name">com.pearlfect.project</string>
+    <string name="custom_url_scheme">com.pearlfect.project</string>
+</resources>

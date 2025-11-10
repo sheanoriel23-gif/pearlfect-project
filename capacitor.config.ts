@@ -1,9 +1,10 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'pearlfect',
-  webDir: 'www'
+  appId: 'com.pearlfect.project',
+  appName: 'pearlfect-project',
+  webDir: 'www',
+  bundledWebRuntime: false
 };
 
 export default config;
